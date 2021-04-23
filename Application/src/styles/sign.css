@@ -1,0 +1,33 @@
+/* body, html {
+    background-image: url("../assets/background.jpg");
+    height: 100vh;
+    margin: 0;
+} */
+
+/* .container{
+    height:100vh;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: black;
+} */
+body {
+    /* background-image: url("../assets/background.jpg"); */
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+
+form {
+    margin-left: 25%;
+    margin-right: 25%;
+    width: 50%;
+}
+
+.container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: 10px;
+}
