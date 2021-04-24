@@ -1,6 +1,5 @@
 private
 node_modules
 .coverage
-.env
 yarn-error
 .DS_Store
