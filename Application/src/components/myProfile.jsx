@@ -22,7 +22,7 @@ const loginContainer = {
   minWidth: "320px",
   maxWidth: 400,
   height: "auto",
-  // position: "absolute",
+  position: "absolute",
   top: "20%",
   left: 0,
   right: 0,
