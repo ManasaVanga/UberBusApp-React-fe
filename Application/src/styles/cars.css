@@ -1,5 +1,11 @@
-.cars-div-white {
+/* .cars-div-white {
     background-color: rgb(17, 22, 68);
+    text-align: center;
+    padding: 3vh;
+    margin-top: 2vh;
+} */
+.cars-div-white-new{
+    background-color:white;
     text-align: center;
     padding: 3vh;
     margin-top: 2vh;
@@ -16,4 +22,11 @@
     height: 100%;
     font-family: 'Numans', sans-serif;
     
+}
+
+.cars-div-white {
+    background-color: wheat;
+    text-align: center;
+    padding: 3vh;
+    margin-top: 2vh;
 }

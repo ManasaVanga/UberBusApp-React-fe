@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import { Button, Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import '../styles/landing.css';
-import LandingBody from './landingBody';
 import UserServiceApi from '../api/UserServiceApi';
 
 class LandingPage extends Component {
@@ -11,11 +10,9 @@ class LandingPage extends Component {
         const isUserLoggedIn = UserServiceApi.isUserLoggedIn();
         const isUserStaff = UserServiceApi.isUserStaff();
         return (
-            <>
                 <Container id="landing-page" fluid>
-                    <div id="catchphrase">
-                        <h1>Uber Bus</h1>
-                        <h4>There is a driver waiting for you</h4>
+                    <div >
+                        <h1 >Uber Bus</h1>
 
                         {(isUserLoggedIn && !isUserStaff) &&
                             <>
@@ -40,10 +37,6 @@ class LandingPage extends Component {
                         }
                     </div>
                 </Container>
-                {/* <Container id="landing-main" fluid>
-                    <LandingBody />
-                </Container> */}
-            </>
         )
     }
 }

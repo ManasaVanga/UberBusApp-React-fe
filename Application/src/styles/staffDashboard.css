@@ -45,4 +45,7 @@
 
 .main {
     background-color: lightgrey;
+    overflow-y: scroll;
+    /* height: 100%;
+    margin: 0px auto; */
 }

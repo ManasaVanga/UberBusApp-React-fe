@@ -119,6 +119,7 @@ class LoginPage extends Component {
       });
   };
 
+
   render() {
     return (
       <html>
@@ -142,6 +143,7 @@ class LoginPage extends Component {
                     >
                         <h4 className={font}>Sign in</h4>
                       <Form.Group as={Row} controlId="formHorizontalEmail">
+
                         <Form.Label column sm={2}>
                           Email
                         </Form.Label>

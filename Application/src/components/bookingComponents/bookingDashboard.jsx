@@ -1,10 +1,11 @@
 /* Booking dashboard */
 import React, { Component } from 'react';
-import { Form, Col, Button, Row, Alert, Container } from 'react-bootstrap';
+import { Form, Col, Button, Row, Alert, Container,Table } from 'react-bootstrap';
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
 import CarServiceApi from '../../api/CarServiceApi';
 import BookingServiceApi from '../../api/BookingServiceApi';
 import LocationServiceApi from '../../api/LocationServiceApi';
+import '../../styles/login.css'
 
 const container = {
     color: "white",
@@ -158,7 +159,7 @@ class BookingDashboard extends Component {
 
     render() {
         return (
-            <Container>
+            <div>
                 {this.state.successMsg &&
                     <Alert variant="success">
                         <Alert.Heading>{this.state.successHeader}</Alert.Heading>
@@ -168,10 +169,11 @@ class BookingDashboard extends Component {
                     </Alert>
                 }
                 {this.state.nextBookingExists &&
-                    <div className="white-cards-div">
+                <html>
+                    <body >
                         <Container>
-                            <h2 style={container}>Your upcoming ride: </h2>
-                            <table>
+                        <h2 style={container}>Your upcoming ride: </h2>
+                        <Table responsive>
                             <tr style={container}>
                                 <th>Booking ID</th>
                                 <th>Booking time</th>
@@ -194,71 +196,28 @@ class BookingDashboard extends Component {
                                 <td>{this.state.location.address}</td>
                                 <td>{this.state.nextBooking.status}</td>
                             </tr>
-                        </table>
-                        {this.state.isLoading && <div id="garage-map" style={{ height: '400px',padding:'10px' }}>
-                                <Map google={this.props.google}
-                                    initialCenter={{
-                                        lat: this.state.location.lat,
-                                        lng: this.state.location.lng
-                                    }}
-                                    style={{ height: '400px', width: '400px' }}
-                                    zoom={14}
-                                    onClick={this.mapOnMapClick}>
-
-                                    <Marker
-                                        id={this.state.location.id}
-                                        name={this.state.location.name}
-                                        address={this.state.location.address}
-                                        onClick={this.mapOnMarkerClick}
-                                        position={{ lat: this.state.location.lat, lng: this.state.location.lng }}
-                                    />
-
-                                    <InfoWindow
-                                        onClose={this.onInfoWindowClose}
-                                        marker={this.state.activeMarker}
-                                        visible={this.state.showingInfoWindow}>
-                                        <div id="info-window">
-                                            <h2>{this.state.selectedPlace.name}</h2>
-                                            <p>{this.state.selectedPlace.address}</p>
-                                            <a href={"/locations/" + this.state.selectedPlace.id}>Check out this location</a>
-                                        </div>
-                                    </InfoWindow>
-                                </Map>
-                            </div>}
-                            {/* <b>Booking ID: </b> {this.state.nextBooking._id} <br></br>
-                            <b>Booking time: </b> {this.state.nextBooking.bookedtime} <br></br>
-                            <b>Pickup time: </b> {this.state.nextBooking.pickuptime} <br></br>
-                            <b>Return time: </b> {this.state.nextBooking.returntime} <br></br>
-                            <b>Cost: </b> ${this.state.nextBooking.cost} <br></br>
-                            <b>Location: </b> {this.state.location.name} <br></br>
-                            <b>Address: </b> {this.state.location.address} <br></br>
-                            <b>Status: </b> {this.state.nextBooking.status} <br></br> */}
-                            {/* <Button variant="success" onClick={this.handlePickupButton} disabled={!this.state.availablePickup}>Pickup</Button>
-                            <Button variant="danger" onClick={this.handleReturnButton} disabled={!this.state.avaialbleReturn}>Return</Button> */}
-                            {/* <Button variant="success" onClick={this.handlePickupButton} disabled={!this.state.availablePickup}>Get directions</Button> */}
+                        </Table>
                             <Button href={`/mybookings/${this.state.nextBooking._id}`}>View Booking</Button>
-                            {/* <Col sm={4}>
-                                <div className="cars-div-white" style={{ 'border': 'solid black 2px', 'color':'white' }}>
-                                    <img src={this.state.car.image} alt="car" width="100" />
-                                    <h2 style={{ marginTop: '1vh' }}>{this.state.car.make}</h2>
-                                    <p>{this.state.car.fueltype}, {this.state.car.bodytype}, {this.state.car.seats} seaters, {this.state.car.colour}</p>
-                                    <h5>Number Plate: {this.state.car.numberplate}</h5>
-                                    <p><b>Bus ID: </b>{this.state.car._id}</p>
-                                </div>
-                            </Col> */}
                         </Container>
-                    </div>
+                    </body>
+                    </html>
                 }
+
                 <br/>
                 <br/>
                 <br/>
-                <h2 style={container}>Let's find you a bus!</h2>
                 {this.state.errorMessage && <Alert variant="danger">
                     <Alert.Heading>Error checking availability!</Alert.Heading>
                     <p>
                         {this.state.errorMessage}
                     </p>
                 </Alert>}
+
+                {!this.state.nextBookingExists &&
+
+                <html>
+                    <body id="login">
+                    <h2 style={container}>Find you a bus!</h2>
                 <Form onSubmit={this.handleSubmit} id="availability_form" >
                     <Form.Group as={Row} controlId="formHorizontalFirstName">
                         <Form.Label column sm={2}>
@@ -284,7 +243,11 @@ class BookingDashboard extends Component {
                         </Col>
                     </Form.Group>
                 </Form>
-            </Container>
+                </body>
+            </html>
+                }
+            </div>
+
         )
     }
 }

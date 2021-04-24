@@ -44,7 +44,7 @@ th, td {
   padding: 8px;
 }
 
-tr:nth-child(even){background-color: #130e5a}
+/* tr:nth-child(even){background-color: #130e5a} */
 
 @keyframes App-logo-spin {
   from {

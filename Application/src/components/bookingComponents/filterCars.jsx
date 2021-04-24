@@ -5,6 +5,7 @@ import CarServiceApi from '../../api/CarServiceApi';
 import { CAR_COLOURS, CAR_BODY_TYPES, CAR_SEATS, CAR_FUEL_TYPES } from '../../Constants.js';
 import LocationServiceApi from '../../api/LocationServiceApi';
 import BookingConfirmDetailsPopUp from './bookingConfirmDetails';
+import { useHistory } from 'react-router-dom';
 
 const container = {
     color: "white",
@@ -28,10 +29,11 @@ class FilterCarsPage extends Component {
             locations: [],
             errorMessage: '',
             popUp: false,
-            selectedCar: ''
+            selectedCar: '',
         };
         this.handleSubmitFilter = this.handleSubmitFilter.bind(this);
         this.handleChange = this.handleChange.bind(this);
+        this.confirmBooking = this.confirmBooking.bind(this);
         this.togglePopUp = this.togglePopUp.bind(this);
     }
 
@@ -73,6 +75,18 @@ class FilterCarsPage extends Component {
         });
     }
 
+    confirmBooking(car){
+        this.props.history.push({
+            pathname: '/confirmBooking',
+            state: {
+                car: car, 
+                locations: this.state.locations,
+                pickupTime: this.state.pickupTime,
+                returnTime: this.state.returnTime,
+            }
+        });       
+    };
+
     componentDidMount() {
         const { availableCars, pickupTime, returnTime } = this.props;
 
@@ -104,6 +118,7 @@ class FilterCarsPage extends Component {
 
     render() {
         return (
+
             <Container style={container}>
                 {this.state.popUp && <BookingConfirmDetailsPopUp locations={this.state.locations} car={this.state.selectedCar} pickupTime={this.state.pickupTime} returnTime={this.state.returnTime} togglePopUp={this.togglePopUp} />}
                 <h2>Search for a car</h2>
@@ -133,6 +148,7 @@ class FilterCarsPage extends Component {
                         </Col>
                     </Form.Group>
                 </Form>
+
 
                 <h2>Available Cars from {this.state.pickupTime} till {this.state.returnTime}</h2>
                 <Table bordered responsive style={container1}>
@@ -181,7 +197,7 @@ class FilterCarsPage extends Component {
                                     )}
                                 </td>
                                 <td>
-                                    <Button onClick={() => this.togglePopUp(car)}>Book</Button>
+                                    <Button onClick={() => this.confirmBooking(car)}>Book</Button>
                                 </td>
                             </tr>
                         )}

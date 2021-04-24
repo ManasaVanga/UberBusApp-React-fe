@@ -5,6 +5,7 @@ import BookingServiceApi from '../../api/BookingServiceApi';
 import LocationServiceApi from '../../api/LocationServiceApi';
 import CarServiceApi from '../../api/CarServiceApi';
 import UserServiceApi from '../../api/UserServiceApi';
+import '../../styles/login.css';
 
 const container = {
     color: "white",
@@ -94,6 +95,7 @@ class MyBookingPage extends Component {
 
     render() {
         return (
+
             <Container style={container}>
                 {this.state.errorMessage && <Alert variant="danger">
                     <Alert.Heading>Error obtaining bookings!</Alert.Heading>
@@ -116,6 +118,7 @@ class MyBookingPage extends Component {
                             <th>Address</th>
                             <th>Destination</th>
                             <th>Status</th>
+
                             <th>Details</th>
                             <th>Cancel</th>
                         </tr>
@@ -179,6 +182,11 @@ class MyBookingPage extends Component {
                                 {(booking.status === "Confirmed" && this.checkBookingPast(booking.pickuptime)) &&
                                     <td>
                                         <Button variant="danger" onClick={() => this.handleCancelButton(booking)}>Cancel</Button>
+                                    </td>
+                                }
+                                {(booking.status === "Cancelled" && this.checkBookingPast(booking.pickuptime)) &&
+                                    <td>
+                                        <Button variant="danger" disabled>Cancel</Button>
                                     </td>
                                 }
                             </tr>

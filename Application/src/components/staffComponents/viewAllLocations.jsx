@@ -27,7 +27,7 @@ export default class ViewAllLocations extends Component {
 
     render() {
         return (
-            <Container>
+            <Container fluid>
                 <h2>All locations, click to view details</h2>
                 {this.state.errorMessage && <Alert variant="danger">
                     <Alert.Heading>Error Getting all cars!</Alert.Heading>

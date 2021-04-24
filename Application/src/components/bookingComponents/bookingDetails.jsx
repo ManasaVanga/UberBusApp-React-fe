@@ -130,6 +130,8 @@ class BookingDetailsPage extends Component {
 
     render() {
         return (
+            <html>
+                <body >
             <div className="container">
                 <h2 style={container}>Booking details</h2>
                 {this.state.errorMessage && <Alert variant="danger">
@@ -140,37 +142,8 @@ class BookingDetailsPage extends Component {
                 </Alert>}
                 {!this.state.errorMessage &&
                     <>
-                        {/* {this.state.isLoading && <div id="garage-map" style={{ height: '400px' }}>
-                            <Map google={this.props.google}
-                                initialCenter={{
-                                    lat: this.state.location.lat,
-                                    lng: this.state.location.lng
-                                }}
-                                style={{ height: '400px', width: '400px' }}
-                                zoom={14}
-                                onClick={this.mapOnMapClick}>
-
-                                <Marker
-                                    id={this.state.location.id}
-                                    name={this.state.location.name}
-                                    address={this.state.location.address}
-                                    onClick={this.mapOnMarkerClick}
-                                    position={{ lat: this.state.location.lat, lng: this.state.location.lng }}
-                                />
-
-                                <InfoWindow
-                                    onClose={this.onInfoWindowClose}
-                                    marker={this.state.activeMarker}
-                                    visible={this.state.showingInfoWindow}>
-                                    <div id="info-window">
-                                        <h2>{this.state.selectedPlace.name}</h2>
-                                        <p>{this.state.selectedPlace.address}</p>
-                                        <a href={"/locations/" + this.state.selectedPlace.id}>Check out this location</a>
-                                    </div>
-                                </InfoWindow>
-                            </Map>
-                        </div>} */}
                         <Container>
+
                         <Table bordered responsive="sm" style={container}>
 
                         <thead>
@@ -201,39 +174,6 @@ class BookingDetailsPage extends Component {
                         </tbody>
                         </Table>
                         </Container>
-                        {/* <table>
-                            <tr>
-                                <th>Booking ID</th>
-                                <th>Booking time</th>
-                                <th>Pickup time</th>
-                                <th>Return time</th>
-                                <th>Cost</th>
-                                <th>Location</th>
-                                <th>Destination</th>
-                                <th>Address</th>
-                                <th>Status</th>
-                            </tr>
-                            <tr>
-                                <td>{this.state.booking._id}</td>
-                                <td>{this.state.booking.bookedtime}</td>
-                                <td>{this.state.booking.pickuptime}</td>
-                                <td>{this.state.booking.returntime}</td>
-                                <td>${this.state.booking.cost}</td>
-                                <td>{this.state.location.name}</td>
-                                <td>{this.state.destination.name}</td>
-                                <td>{this.state.location.address}</td>
-                                <td>{this.state.booking.status}</td>
-                            </tr>
-                        </table> */}
-                        {/* <b>Booking ID: </b> {this.state.booking._id} <br></br>
-                        <b>Booking time: </b> {this.state.booking.bookedtime} <br></br>
-                        <b>Pickup time: </b> {this.state.booking.pickuptime} <br></br>
-                        <b>Return time: </b> {this.state.booking.returntime} <br></br>
-                        <b>Cost: </b> ${this.state.booking.cost} <br></br>
-                        <b>Location: </b> {this.state.location.name} <br></br>
-                        <b>Destination: </b>{this.state.destination.name} <br></br>
-                        <b>Address: </b> {this.state.location.address} <br></br>
-                        <b>Status: </b> {this.state.booking.status} <br></br> */}
                         {(this.state.booking.status === "Confirmed" && this.checkBookingPast(this.state.booking.pickuptime)) &&
                             <Button variant="danger" onClick={this.handleCancelButton}>Cancel</Button>
                         }
@@ -249,6 +189,9 @@ class BookingDetailsPage extends Component {
                     </>
                 }
             </div>
+                
+            </body>
+            </html>
         )
     }
 }

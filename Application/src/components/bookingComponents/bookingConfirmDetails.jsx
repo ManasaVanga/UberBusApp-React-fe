@@ -5,6 +5,7 @@ import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
 import BookingServiceApi from '../../api/BookingServiceApi';
 import UserServiceApi from '../../api/UserServiceApi';
 import LocationServiceApi from '../../api/LocationServiceApi';
+import '../../styles/cars.css';
 
 class BookingConfirmDetailsPopUp extends Component {
 
@@ -19,6 +20,10 @@ class BookingConfirmDetailsPopUp extends Component {
             showingInfoWindow: false,
             selectedPlace: {},
             isLoading: false,
+            locations: this.props.location.state.locations,
+            car: this.props.location.state.car,
+            pickupTime: this.props.location.state.pickupTime,
+            returnTime: this.props.location.state.returnTime,
         };
         this.handleConfirmButton = this.handleConfirmButton.bind(this);
         this.handleCancelButton = this.handleCancelButton.bind(this);
@@ -36,12 +41,12 @@ class BookingConfirmDetailsPopUp extends Component {
         console.log(this.state.destination);
 
         let newBooking = {
-            pickupTime: this.props.pickupTime,
-            returnTime: this.props.returnTime,
+            pickupTime: this.state.pickupTime,
+            returnTime: this.state.returnTime,
             user: UserServiceApi.getLoggedInUserID(),
-            car: this.props.car._id,
+            car: this.state.car._id,
             destination: this.state.destination,
-            location: this.props.car.location,
+            location: this.state.car.location,
         };
 
         console.log(newBooking);
@@ -60,12 +65,13 @@ class BookingConfirmDetailsPopUp extends Component {
 
     handleCancelButton = event => {
         // prevent browser from refreshing on click
-        event.preventDefault();
-        this.props.togglePopUp();
+        // event.preventDefault();
+        // this.props.togglePopUp();
+        window.location.href = `/dashboard`;
     };
 
     componentDidMount() {
-        const { car } = this.props;
+        const  car  = this.state.car;
 
         // obtain location from id
         LocationServiceApi.getLocationFromId(car.location)
@@ -122,56 +128,37 @@ class BookingConfirmDetailsPopUp extends Component {
 
     calculateBookingCost() {
         // cost calculation based on pickup time and return time difference
-        const pickupTimeHours = new Date(this.props.pickupTime);
-        const returnTimeHours = new Date(this.props.returnTime);
+        const pickupTimeHours = new Date(this.state.pickupTime);
+        const returnTimeHours = new Date(this.state.returnTime);
         const timeDeltaHours = new Date(returnTimeHours - pickupTimeHours).getTime() / 3600;
 
-        const cost = parseInt(this.props.car.costperhour) * (timeDeltaHours / 1000);
+        const cost = parseInt(this.state.car.costperhour) * (timeDeltaHours / 1000);
+
+        // const cost = parseInt(this.props.car.costperhour) * (timeDeltaHours / 1000);
         return cost.toFixed(2);
     }
 
     render() {
-        const { locations, car, pickupTime, returnTime } = this.props;
+        // const {pickupTime, returnTime } = this.props;
+        const car = this.state.car;
+        const locations = this.state.locations;
+        const pickupTime = this.state.pickupTime;
+        const returnTime = this.state.returnTime;
+
         const cost = this.calculateBookingCost();
 
-        return (<div className="container">
+        return (
+        <html>
+            <body>
+        <div className="container">
             {this.state.errorMessage && <Alert variant="danger">
                 <Alert.Heading>Booking failed!</Alert.Heading>
                 <p>
                     {this.state.errorMessage}
                 </p>
             </Alert>}
+            <Form responsive>
             <h2>Confirm Booking?</h2>
-            {this.state.isLoading && <div id="garage-map" style={{ height: '400px' }}>
-                <Map google={this.props.google}
-                    initialCenter={{
-                        lat: this.state.location.lat,
-                        lng: this.state.location.lng
-                    }}
-                    style={{ height: '400px', width: '400px' }}
-                    zoom={14}
-                    onClick={this.mapOnMapClick}>
-
-                    <Marker
-                        id={this.state.location.id}
-                        name={this.state.location.name}
-                        address={this.state.location.address}
-                        onClick={this.mapOnMarkerClick}
-                        position={{ lat: this.state.location.lat, lng: this.state.location.lng }}
-                    />
-
-                    <InfoWindow
-                        onClose={this.onInfoWindowClose}
-                        marker={this.state.activeMarker}
-                        visible={this.state.showingInfoWindow}>
-                        <div id="info-window">
-                            <h2>{this.state.selectedPlace.name}</h2>
-                            <p>{this.state.selectedPlace.address}</p>
-                            <a href={"/locations/" + this.state.selectedPlace.id}>Check out this location</a>
-                        </div>
-                    </InfoWindow>
-                </Map>
-            </div>}
             <b>Pickup time: </b> {pickupTime} <br></br>
             <b>Return time: </b> {returnTime} <br></br>
             <b>Cost: </b> ${cost} <br></br>
@@ -199,7 +186,7 @@ class BookingConfirmDetailsPopUp extends Component {
                     <h2 style={{ marginTop: '1vh' }}>{car.make}</h2>
                     <p>{car.fueltype}, {car.bodytype}, {car.seats} seaters, {car.colour}</p>
                     <h5>${car.costperhour} per hour</h5>
-                    <a href={"/locations/" + car.locationId}><strong>Garage Location:</strong> {car.location}</a>
+                    <a href={"/locations/" + car.location}><strong>Garage Location:</strong> {car.location}</a>
                 </div>
             </Col>
 
@@ -218,7 +205,11 @@ class BookingConfirmDetailsPopUp extends Component {
             </Container>
             <Button variant="success" onClick={this.handleConfirmButton}>Confirm</Button>
             <Button variant="danger" onClick={this.handleCancelButton}>Cancel</Button>
-        </div>);
+            </Form>
+        </div>
+        </body>
+        </html>
+        );
     }
 }
 

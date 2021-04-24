@@ -107,7 +107,7 @@ class ViewLocation extends Component {
                         </tr>
                     </tbody>
                 </Table>
-
+                
                     {this.state.isLoading && <div style={{ height: '400px' }}>
                         <Map google={this.props.google}
                             initialCenter={{
@@ -144,7 +144,6 @@ class ViewLocation extends Component {
                         <CarDescriptionComponent car={car} />
                     ) : <Col>Garage empty</Col>}
                 </Row>
-
             </Container>
         )
     }

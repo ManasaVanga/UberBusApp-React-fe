@@ -1,6 +1,6 @@
 /* View booking page */
 import React, { Component } from 'react';
-import { Alert, Button, Container, Col } from 'react-bootstrap';
+import { Alert, Button, Container, Col,Form } from 'react-bootstrap';
 import BookingServiceApi from '../../api/BookingServiceApi';
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
 const { default: LocationServiceApi } = require("../../api/LocationServiceApi");
@@ -141,7 +141,7 @@ class ViewBookingPage extends Component {
                     </Map>
                 </div>}
                 {!this.state.errorMessage &&
-                    <>
+                    <Form responsive>
                         <b>Booking ID: </b> {this.state.booking._id} <br></br>
                         <b>Booking time: </b> {this.state.booking.bookedtime} <br></br>
                         <b>Pickup time: </b> {this.state.booking.pickuptime} <br></br>
@@ -153,7 +153,7 @@ class ViewBookingPage extends Component {
                         {(this.state.booking.status === "Confirmed" && this.checkBookingPast(this.state.booking.pickuptime)) &&
                             <Button variant="danger" onClick={this.handleCancelButton}>Cancel</Button>
                         }
-                        <Col sm={4}>
+                        <Col sm={4} fluid>
                             <div className="cars-div-white" style={{ 'border': 'solid black 2px' }}>
                                 <img src={this.state.car.image} alt="car" width="100" />
                                 <h2 style={{ marginTop: '1vh' }}>{this.state.car.make}</h2>
@@ -163,7 +163,7 @@ class ViewBookingPage extends Component {
                                 <a href={`/admin/view/cars/${this.state.car._id}`}><b>Bus ID: </b>{this.state.car._id}</a>
                             </div>
                         </Col>
-                    </>
+                    </Form>
                 }
             </Container>
         )
