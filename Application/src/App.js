@@ -13,6 +13,7 @@ import LocationShowPage from './components/locationShow';
 import FilterCarsPage from './components/bookingComponents/filterCars';
 import BookingDashboard from './components/bookingComponents/bookingDashboard';
 import MyBookingPage from './components/bookingComponents/myBookings';
+import ConfirmBookingPage from './components/bookingComponents/bookingConfirmDetails';
 import BookingDetailsPage from './components/bookingComponents/bookingDetails';
 import MyProfilePage from './components/myProfile';
 
@@ -80,6 +81,7 @@ class App extends Component {
           {!isUserStaff && <AuthenticatedRoute path="/mybookings/:id" component={BookingDetailsPage} />}
           {!isUserStaff && <AuthenticatedRoute path="/mybookings" component={MyBookingPage} />}
           {!isUserStaff && <AuthenticatedRoute path="/myprofile" component={MyProfilePage} />}
+          {!isUserStaff && <AuthenticatedRoute path="/confirmBooking" component={ConfirmBookingPage} />}
           {/* Staff and admin only routes */}
           <StaffRoute path="/staff" component={Overview} />
           <StaffRoute path="/buses" component={Cars}></StaffRoute>
