@@ -178,7 +178,7 @@ class BookingDetailsPage extends Component {
                             <Button variant="danger" onClick={this.handleCancelButton}>Cancel</Button>
                         }
                         <Col lg={true} sm={4}>
-                            <div className="cars-div-white" style={{ 'border': 'solid black 2px', 'color':'white' }}>
+                            <div className="cars-div-white" style={{ 'border': 'solid black 2px'}}>
                                 <img src={this.state.car.image} alt="car" width="100" />
                                 <h2 style={{ marginTop: '1vh' }}>{this.state.car.make}</h2>
                                 <p>{this.state.car.fueltype}, {this.state.car.bodytype}, {this.state.car.seats} seaters, {this.state.car.colour}</p>
