@@ -24,9 +24,24 @@ jobs:
   build:
     name: Build and push Application to ACR
     runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@master
+    
+    strategy:
+      matrix:
+        node-version: [10.x]
 
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: Frontend Dir
+      working-directory: ./Application
+      run: |
+        npm ci
+        npm run test
+        
+    - uses: actions/checkout@master
     - name: Azure authentication
       uses: azure/login@v1
       with:
