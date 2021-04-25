@@ -1,11 +1,16 @@
 {
-  "short_name": "MZA Car Share Melbourne",
-  "name": "MZA Car Share Melbourne: You don't need to own a car to drive one!",
+  "short_name": "Uber Bus",
+  "name": "Uber Bus: You don't need to own a bus to drive one!",
   "icons": [
     {
       "src": "favicon.ico",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
+    },
+    {
+      "src": "uberapp.png",
+      "sizes": "192x192",
+      "type": "image/png"
     },
     {
       "src": "logo192.png",
