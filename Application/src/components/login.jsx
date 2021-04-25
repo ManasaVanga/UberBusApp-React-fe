@@ -112,6 +112,7 @@ class LoginPage extends Component {
     // publish login details to backend
     UserServiceApi.loginUser(creds)
       .then((res) => {
+        console.log("jwt token: "+ res.data.token);
         UserServiceApi.registerSuccessfulLoginForJwt(res.data.token);
         window.location.href = `/`;
       })
