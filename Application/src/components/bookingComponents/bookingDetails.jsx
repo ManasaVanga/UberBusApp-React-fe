@@ -1,6 +1,7 @@
 /* Bookings details page */
 import React, { Component } from 'react';
-import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
+// import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
+import { GoogleApiWrapper } from 'google-maps-react';
 import { Alert, Button, Col ,Container, Table} from 'react-bootstrap';
 import BookingServiceApi from '../../api/BookingServiceApi';
 import CarServiceApi from '../../api/CarServiceApi';

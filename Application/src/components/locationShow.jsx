@@ -1,7 +1,8 @@
 /* Location show page */
 import React, { Component } from 'react';
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
-import { Jumbotron, Button ,Form} from 'react-bootstrap';
+// import { Jumbotron, Button ,Form} from 'react-bootstrap';
+import { Jumbotron, Button } from 'react-bootstrap';
 import { Container, Row, Col } from 'react-bootstrap'
 import LocationServiceApi from '../api/LocationServiceApi.js';
 import CarServiceApi from '../api/CarServiceApi.js';

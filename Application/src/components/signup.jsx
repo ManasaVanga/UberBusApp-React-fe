@@ -5,14 +5,14 @@ import UserServiceApi from "../api/UserServiceApi.js";
 import "../styles/login.css";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import Paper from "material-ui/Paper";
-import RaisedButton from "material-ui/RaisedButton";
+// import RaisedButton from "material-ui/RaisedButton";
 import FlatButton from "material-ui/FlatButton";
-import Checkbox from "material-ui/Checkbox";
-import { grey500, white } from "material-ui/styles/colors";
+// import Checkbox from "material-ui/Checkbox";
+// import { grey500, white } from "material-ui/styles/colors";
 import PersonAdd from "material-ui/svg-icons/social/person-add";
-import Help from "material-ui/svg-icons/action/help";
-import TextField from "material-ui/TextField";
-import { Link } from "react-router-dom";
+// import Help from "material-ui/svg-icons/action/help";
+// import TextField from "material-ui/TextField";
+// import { Link } from "react-router-dom";
 import ThemeDefault from "./theme-default";
 import Image1 from '../assets/image1.png';
 
@@ -37,41 +37,42 @@ const buttonsDiv = {
 const flatButton = {
   color: "grey",
 };
-const checkRemember = {
-  style: {
-    float: "left",
-    maxWidth: 180,
-    paddingTop: 5,
-  },
-  labelStyle: {
-    color: "grey",
-  },
-  iconStyle: {
-    color: "grey",
-    borderColor: "grey",
-    fill: "grey",
-  },
-};
-const loginBtn = {
-  float: "right",
-};
-const btn = {
-  background: "#4f81e9",
-  color: "white",
-  padding: 7,
-  borderRadius: 2,
-  margin: 2,
-  fontSize: 13,
-};
-const btnFacebook = {
-  background: "#4f81e9",
-};
-const btnGoogle = {
-  background: "#e14441",
-};
-const btnSpan = {
-  marginLeft: 5,
-};
+
+// const checkRemember = {
+//   style: {
+//     float: "left",
+//     maxWidth: 180,
+//     paddingTop: 5,
+//   },
+//   labelStyle: {
+//     color: "grey",
+//   },
+//   iconStyle: {
+//     color: "grey",
+//     borderColor: "grey",
+//     fill: "grey",
+//   },
+// };
+// const loginBtn = {
+//   float: "right",
+// };
+// const btn = {
+//   background: "#4f81e9",
+//   color: "white",
+//   padding: 7,
+//   borderRadius: 2,
+//   margin: 2,
+//   fontSize: 13,
+// };
+// const btnFacebook = {
+//   background: "#4f81e9",
+// };
+// const btnGoogle = {
+//   background: "#e14441",
+// };
+// const btnSpan = {
+//   marginLeft: 5,
+// };
 
 const image = {
   maxWidth: 350,
@@ -142,7 +143,7 @@ class SignUpPage extends Component {
             <div>
               <div style={loginContainer}>
                 <Paper style={paper}>
-                <img style={image} src={Image1}/>
+                <img alt="Sign UP" style={image} src={Image1}/>
                   <div className="container">
                     {this.state.errorMessage && (
                       <Alert variant="danger">

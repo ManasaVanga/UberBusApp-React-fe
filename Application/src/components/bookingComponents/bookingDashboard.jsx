@@ -1,7 +1,8 @@
 /* Booking dashboard */
 import React, { Component } from 'react';
 import { Form, Col, Button, Row, Alert, Container,Table } from 'react-bootstrap';
-import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
+// import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
+import { GoogleApiWrapper } from 'google-maps-react';
 import CarServiceApi from '../../api/CarServiceApi';
 import BookingServiceApi from '../../api/BookingServiceApi';
 import LocationServiceApi from '../../api/LocationServiceApi';

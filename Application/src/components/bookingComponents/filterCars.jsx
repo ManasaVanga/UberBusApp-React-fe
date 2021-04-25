@@ -2,10 +2,10 @@
 import React, { Component } from 'react';
 import { Form, Col, Button, Row, Alert, Table, Container } from 'react-bootstrap';
 import CarServiceApi from '../../api/CarServiceApi';
-import { CAR_COLOURS, CAR_BODY_TYPES, CAR_SEATS, CAR_FUEL_TYPES } from '../../Constants.js';
+// import { CAR_COLOURS, CAR_BODY_TYPES, CAR_SEATS, CAR_FUEL_TYPES } from '../../Constants.js';
 import LocationServiceApi from '../../api/LocationServiceApi';
 import BookingConfirmDetailsPopUp from './bookingConfirmDetails';
-import { useHistory } from 'react-router-dom';
+// import { useHistory } from 'react-router-dom';
 
 const container = {
     color: "white",

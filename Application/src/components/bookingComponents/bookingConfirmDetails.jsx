@@ -1,7 +1,8 @@
 /* Bookings confirm details page */
 import React, { Component } from 'react';
 import { Form, Col, Button, Alert, Container } from 'react-bootstrap';
-import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
+// import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
+import { GoogleApiWrapper } from 'google-maps-react';
 import BookingServiceApi from '../../api/BookingServiceApi';
 import UserServiceApi from '../../api/UserServiceApi';
 import LocationServiceApi from '../../api/LocationServiceApi';

@@ -1,17 +1,18 @@
 /* My profile page for customers */
 import React, { Component } from "react";
-import { Button, Container } from "react-bootstrap";
+// import { Button, Container } from "react-bootstrap";
 // import '../styles/myProfile.css'
+import { Button } from "react-bootstrap";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import Paper from "material-ui/Paper";
-import RaisedButton from "material-ui/RaisedButton";
-import FlatButton from "material-ui/FlatButton";
-import Checkbox from "material-ui/Checkbox";
-import { grey500, white } from "material-ui/styles/colors";
-import PersonAdd from "material-ui/svg-icons/social/person-add";
-import Help from "material-ui/svg-icons/action/help";
-import TextField from "material-ui/TextField";
-import { Link } from "react-router-dom";
+// import RaisedButton from "material-ui/RaisedButton";
+// import FlatButton from "material-ui/FlatButton";
+// import Checkbox from "material-ui/Checkbox";
+// import { grey500, white } from "material-ui/styles/colors";
+// import PersonAdd from "material-ui/svg-icons/social/person-add";
+// import Help from "material-ui/svg-icons/action/help";
+// import TextField from "material-ui/TextField";
+// import { Link } from "react-router-dom";
 import ThemeDefault from "./theme-default";
 
 import "../styles/userProfile.css";
@@ -32,48 +33,48 @@ const paper = {
   padding: 20,
   overflow: "auto",
 };
-const buttonsDiv = {
-  textAlign: "center",
-  padding: 5,
-};
-const flatButton = {
-  color: "grey",
-};
-const checkRemember = {
-  style: {
-    float: "left",
-    maxWidth: 180,
-    paddingTop: 5,
-  },
-  labelStyle: {
-    color: "grey",
-  },
-  iconStyle: {
-    color: "grey",
-    borderColor: "grey",
-    fill: "grey",
-  },
-};
-const loginBtn = {
-  float: "right",
-};
-const btn = {
-  background: "#4f81e9",
-  color: "white",
-  padding: 7,
-  borderRadius: 2,
-  margin: 2,
-  fontSize: 13,
-};
-const btnFacebook = {
-  background: "#4f81e9",
-};
-const btnGoogle = {
-  background: "#e14441",
-};
-const btnSpan = {
-  marginLeft: 5,
-};
+// const buttonsDiv = {
+//   textAlign: "center",
+//   padding: 5,
+// };
+// const flatButton = {
+//   color: "grey",
+// };
+// const checkRemember = {
+//   style: {
+//     float: "left",
+//     maxWidth: 180,
+//     paddingTop: 5,
+//   },
+//   labelStyle: {
+//     color: "grey",
+//   },
+//   iconStyle: {
+//     color: "grey",
+//     borderColor: "grey",
+//     fill: "grey",
+//   },
+// };
+// const loginBtn = {
+//   float: "right",
+// };
+// const btn = {
+//   background: "#4f81e9",
+//   color: "white",
+//   padding: 7,
+//   borderRadius: 2,
+//   margin: 2,
+//   fontSize: 13,
+// };
+// const btnFacebook = {
+//   background: "#4f81e9",
+// };
+// const btnGoogle = {
+//   background: "#e14441",
+// };
+// const btnSpan = {
+//   marginLeft: 5,
+// };
 
 class MyProfilePage extends Component {
   uppercase = (word) => {
