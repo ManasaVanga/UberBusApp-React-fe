@@ -12,7 +12,10 @@ In this application, there are two user type: customer and admin. When logged in
 ### How to run
   - Clone the repository to your local: `git clone https://github.com/ManasaVanga/UberBusApp-React-fe.git`.
   - Run `npm install` to install the depencency, then run `npm start`, you can run it locally.
-  - If you want to run in Azure cloud, you need to config Azure cloud environment and config git action, then you can push the code to github to do the CI/CD in Azure.
+  - To connect to backend, follow steps from - `https://github.com/ManasaVanga/UberBusApp-NodeJs`.
+  - If you want to run in Azure cloud, you need to config Azure cloud environment and config git action using DevOps Starter Project(https://docs.microsoft.com/en-us/azure/devops-project/overview) then you can push the code to github to do the CI/CD in Azure.
+  - Copy the React app code from Application folder to new DevOps project to run Uber Bus app.
+  - Access the application at - `http://uberbusapp-react-fe.azurewebsites.net/`
 
 ### Key Functionality
   - Mobile Ready UI ( Responsive UI)
